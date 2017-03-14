@@ -58,8 +58,11 @@ class App extends Component {
     fetch(URL,
     {
       method: 'post',
-      header: {'content-type': 'application/json'},
+      headers: new Headers({'content-type': 'application/json'}),
       body: JSON.stringify(input)
+    })
+    .then((res) => {
+      return res.json();
     })
     .then(() => {
       this.getMessages(URL);
