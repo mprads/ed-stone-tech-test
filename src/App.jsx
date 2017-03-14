@@ -18,7 +18,12 @@ class App extends Component {
       return res.json();
     })
     .then((result) => {
+      if (url != URL) {
+        resultArr = this.state.messageList.concat(result.results);
+      }
+      else {
        resultArr = result.results;
+     }
        this.setState({messageList: resultArr}, () => {
          if (result.next) {
            this.getMessages(result.next);
