@@ -7,15 +7,37 @@ class App extends Component {
     this.state = {
       messageList: []
     }
+    this.getMessages = this.getMessages.bind(this);
+    URL = 'http://myles-rademaker-test.herokuapp.com/messages/';
+  }
 
+  getMessages(url) {
+    let resultArr = [];
+    fetch(url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((result) => {
+       resultArr = result.results;
+       this.setState({messageList: resultArr}, () => {
+         if (callback) {
+           callback();
+         }
+       });
+    })
+    .then((err) => {
+      console.log('Get Request Failed')
+    })
   }
 
   componentDidMount() {
-
+    this.getMessages(URL);
   }
   render() {
     return (
-      <MessageList />
+      <MessageList
+        messageList={this.state.messageList}
+      />
     );
   }
 }

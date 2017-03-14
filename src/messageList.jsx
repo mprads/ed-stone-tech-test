@@ -7,8 +7,19 @@ class MessageList extends Component {
   }
 
   render() {
+    const results = this.props.messageList.map((message) => {
+      return (
+        <Message
+          key={message.id}
+          text={message.text}
+          created_at={message.created_at}
+        />
+      );
+    })
     return (
-      <Message />
+      <div>
+        {results}
+      </div>
     );
   }
 }
