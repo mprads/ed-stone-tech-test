@@ -19,9 +19,9 @@ class App extends Component {
     })
     .then((result) => {
        resultArr = result.results;
-       this.setState({messageList: resultArr}, (callback) => {
-         if (callback) {
-           callback();
+       this.setState({messageList: resultArr}, () => {
+         if (result.next) {
+           this.getMessages(result.next);
          }
        });
     })
