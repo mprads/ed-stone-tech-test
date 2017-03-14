@@ -15,7 +15,8 @@ class ComposeMessage extends Component {
   }
 
   handleSubmit(input) {
-    this.props.postMessage(input);
+    const message = {text: input}
+    this.props.postMessage(message);
     this.setState({value: ''});
   }
 
