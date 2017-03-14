@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Moment from 'moment';
+import moment from 'moment';
 
 class Message extends Component {
   constructor(props) {
@@ -8,7 +8,11 @@ class Message extends Component {
 
   render() {
     return (
-      <h1>New test</h1>
+      <div>
+        <p>{this.props.id}</p>
+        <p>{moment(this.props.created_at).format('HH:mm')}</p>
+        <h1>{this.props.text}</h1>
+      </div>
     );
   }
 }

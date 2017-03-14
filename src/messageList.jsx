@@ -11,6 +11,7 @@ class MessageList extends Component {
       return (
         <Message
           key={message.id}
+          id={message.id}
           text={message.text}
           created_at={message.created_at}
         />
