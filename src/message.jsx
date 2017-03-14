@@ -3,7 +3,7 @@ import moment from 'moment';
 
 class Message extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {

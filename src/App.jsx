@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MessageList from './messageList.jsx';
+import ComposeMessage from './composeMessage.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -73,10 +74,19 @@ class App extends Component {
   }
   render() {
     return (
-      <MessageList
-        deleteMessage={this.deleteMessage}
-        messageList={this.state.messageList}
-      />
+      <div>
+        <div>
+          <ComposeMessage
+            postMessage={this.postMessage}
+            />
+        </div>
+        <div>
+          <MessageList
+            deleteMessage={this.deleteMessage}
+            messageList={this.state.messageList}
+          />
+        </div>
+      </div>
     );
   }
 }

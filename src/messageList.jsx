@@ -3,7 +3,7 @@ import Message from './message.jsx'
 
 class MessageList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
