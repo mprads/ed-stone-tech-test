@@ -23,8 +23,8 @@ class ComposeMessage extends Component {
   render() {
     return (
       <div>
-        <textarea value={this.state.value} onChange={this.handleChange} placeholder='Whats on your mind?'></textarea>
-        <div onClick={() => {this.handleSubmit(this.state.value)}}>
+        <textarea className='textarea' value={this.state.value} onChange={this.handleChange} placeholder='Whats on your mind?'></textarea>
+        <div className='button is-success is-large' onClick={() => {this.handleSubmit(this.state.value)}}>
           Submit
         </div>
       </div>
