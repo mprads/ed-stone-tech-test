@@ -10,7 +10,7 @@ class Message extends Component {
     return (
       <div>
         <p>{this.props.id}</p>
-        <p>{moment(this.props.created_at).format('HH:mm')}</p>
+        <p>{moment(this.props.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p>
         <h1>{this.props.text}</h1>
       </div>
     );
