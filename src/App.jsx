@@ -18,13 +18,16 @@ class App extends Component {
       return res.json();
     })
     .then((result) => {
+      // check to see if the url is the main page or not
       if (url != URL) {
+        // add the new array onto the array in state from the first page
         resultArr = this.state.messageList.concat(result.results);
       }
       else {
        resultArr = result.results;
      }
        this.setState({messageList: resultArr}, () => {
+        //  check if there is a next page
          if (result.next) {
            this.getMessages(result.next);
          }
