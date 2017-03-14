@@ -8,6 +8,7 @@ class App extends Component {
       messageList: []
     }
     this.getMessages = this.getMessages.bind(this);
+    this.deleteMessage = this.deleteMessage.bind(this);
     URL = 'http://myles-rademaker-test.herokuapp.com/messages/';
   }
 
@@ -35,6 +36,18 @@ class App extends Component {
     })
     .catch((err) => {
       console.log('Get Request Failed')
+    })
+  }
+
+  deleteMessage(id) {
+    fetch(`${URL}/${id}`,
+    { method: 'delete'
+    })
+    .then(() => {
+      this.getMessages(URL);
+    })
+    .catch((err) => {
+      console.log('Delete Failed')
     })
   }
 
