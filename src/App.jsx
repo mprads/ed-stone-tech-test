@@ -30,7 +30,7 @@ class App extends Component {
          }
        });
     })
-    .then((err) => {
+    .catch((err) => {
       console.log('Get Request Failed')
     })
   }
