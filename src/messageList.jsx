@@ -10,6 +10,7 @@ class MessageList extends Component {
     const results = this.props.messageList.map((message) => {
       return (
         <Message
+          deleteMessage={this.props.deleteMessage}
           key={message.id}
           id={message.id}
           text={message.text}

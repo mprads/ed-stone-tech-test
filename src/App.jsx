@@ -57,6 +57,7 @@ class App extends Component {
   render() {
     return (
       <MessageList
+        deleteMessage={this.deleteMessage}
         messageList={this.state.messageList}
       />
     );
