@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   deleteMessage(id) {
-    fetch(`${URL}/${id}`,
+    fetch(`${URL}${id}`,
     { method: 'delete'
     })
     .then(() => {
