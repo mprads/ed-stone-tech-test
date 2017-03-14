@@ -3,12 +3,13 @@ import MessageList from './messageList.jsx';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       messageList: []
     }
     this.getMessages = this.getMessages.bind(this);
     this.deleteMessage = this.deleteMessage.bind(this);
+    this.postMessage = this.postMessage.bind(this);
     URL = 'http://myles-rademaker-test.herokuapp.com/messages/';
   }
 
@@ -35,20 +36,36 @@ class App extends Component {
        });
     })
     .catch((err) => {
-      console.log('Get Request Failed')
-    })
+      console.log('Get Request Failed');
+    });
   }
 
   deleteMessage(id) {
     fetch(`${URL}${id}/`,
-    { method: 'delete'
+    {
+      method: 'delete'
     })
     .then(() => {
       this.getMessages(URL);
     })
     .catch((err) => {
-      console.log('Delete Failed')
+      console.log('Delete Failed');
+    });
+  }
+
+  postMessage(input) {
+    fetch(URL,
+    {
+      method: 'post',
+      header: {'content-type': 'application/json'},
+      body: JSON.stringify(input)
     })
+    .then(() => {
+      this.getMessages(URL);
+    })
+    .catch((err) => {
+      console.log('Failed to Post');
+    });
   }
 
   componentDidMount() {
