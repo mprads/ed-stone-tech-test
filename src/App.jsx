@@ -85,6 +85,7 @@ class App extends Component {
         </div>
         <div>
           <MessageList
+            URL={URL}
             deleteMessage={this.deleteMessage}
             messageList={this.state.messageList}
           />
